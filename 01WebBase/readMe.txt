@@ -80,11 +80,104 @@ URI 和  URL
  http://localhost  :  8080    /01WebBase/index.jsp    
   协议      主机ip地址         端口号         项目名称       资源路径
     
-     
-     
-     
-     
-     
+ http://localhost  :  8080    /01WebBase/              URI
+ http://localhost  :  8080    /01WebBase/index.jsp     URL
+      
+   
+   
+   jsp  (java  server pages) :是一种动态网页的开发技术！
+   
+ jsp 页面元素包括：
+    1. HTML静态页面  
+    2.<%  java小脚本%>
+    3.<%@ 指令 %> 
+    4.<%=表达式 %> 
+    5.<%! 声明方法,成员变量 %>  
+    6.  html的注释 ===<!-- 页面可以看到 -->
+        jsp的注释 ===<%-- 页面不可以看到 --%>
+    
+ 
+ 
+ 观察first.jsp页面
+ 
+ <%@ page language="java" import="java.util.*" 
+ pageEncoding="UTF-8" contentType="text/html; charset=utf-8" %>
+ 
+                page：  jsp9大内置对象之一，当前页面
+    language="java" ：   当前页面可以使用的语言
+ import="java.util.*"   引入java语言中util包下的所有类
+pageEncoding="UTF-8" ：  当前页面的编码格式 
+contentType="text/html; charset=utf-8" :当前页面在浏览器中显示的格式   
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8">    
+  用户在前端页面输入的编码格式！  
+    
+<%
+String path = request.getContextPath();  项目的跟路径    /01WebBase
+
+http://localhost:8080/01WebBase/
+
+String basePath = 
+request.getScheme()+      请求的协议
+"://"+
+request.getServerName()+  请求的主机名称
+":"+
+request.getServerPort()+  请求的主机端口号
+path+"/";                 项目的跟路径
+%>
+    
+ <base href="<%=basePath%>"> 
+ 把  localhost:8080/01WebBase/当成了相对路径
+    
+    
+ 没有对象我们怎么使用类的属性以及方法？？  压根不行！
+ 必须通过   类名   对象名=new 类名();
+ 
+ 
+ 内置对象:底层给我们实例化了，我们直接使用对象即可！
+                
+                JSP的九大内置对象 (仅限于jsp页面使用)
+                
+page                   当前页面                        this
+pageContext       当前页面上下文对象                PageContext
+request                请求对象                        HttpServletRequest
+response               响应对象                        HttpServletResponse
+session                会话对象                        HttpSession
+application           应用程序对象                   ServletContext
+out                     输入对象                      JspWriter
+config                  配置对象                      ServletConfig
+exception               异常对象                      Throwable
+   
+   
+   
+   jsp其实就是一个servlet！
+   servlet其实就是一个java类！
+   
+   
+   
+  所有声明在<% %> 都会在 _jspService()方法中！   局部变量！
+  所有声明在<%! %> 都会在对应的jsp类中！   成员变量！
+  方法只能定义在  <%! %> 
+   
+   
+   jsp的执行流程
+	   01.翻译阶段:把jsp文件翻译成.java源文件
+	                             如果jsp文件没有被修改，那么这个阶段只执行一次！
+	                             
+	   02.编译阶段：.java源文件编译成.class文件
+	   
+	   03.执行阶段： 执行.class文件 转换成jsp返回个用户
+	   
+   
+   jsp的生命周期
+       01. init：初始化！ 只有在用户第一次访问页面的时候执行一次！
+       02.destroy：销毁！ 只有服务器关闭的时候执行一次！
+       03.service： 用户每访问一次，执行一次！
+   
+   
+    
+    
+    
      
      
      
