@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/jquery.min.js,WebRoot/js/app.js,WebRoot/static/js/app.js,WebRoot/js/amazeui.datatables.min.js,WebRoot/static/js/amazeui.datatables.min.js,WebRoot/static/js/jquery.min.js
+validator.Unchecked=
