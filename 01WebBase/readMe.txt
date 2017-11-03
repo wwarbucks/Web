@@ -7,7 +7,7 @@ Web  (java  EE)
 B: Browser  浏览器
 C：Client   客户端
 S：Server   服务器
-
+ 
  01. C/S 必须下载各种客户端   
      B/S 只需要有浏览器
  

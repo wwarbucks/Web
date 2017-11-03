@@ -35,7 +35,7 @@ get请求乱码   治本的办法  去 tomcat中的conf/server.xml文件中 connector节点中配置
   String [] loves= request.getParameterValues("love");
  
  request对象常用的方法
- 
+  
  getParameter()   根据name值获取value
  setCharacterEncoding() 设置post请求乱码
  getParameterValues()   获取页面多个name对应的value集合
