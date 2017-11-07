@@ -1,3 +1,5 @@
+<%@page import="java.net.URLDecoder"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -28,15 +30,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <% 
       Cookie [] css=  request.getCookies();
-      
        if(css!=null){
-       
          for(int i=0;i<css.length;i++){
              if("userName".equals(css[i].getName())){
-               out.print(css[i].getValue());
+               out.print(URLDecoder.decode(css[i].getValue(), "utf-8"));
              }
              if("userName2".equals(css[i].getName())){
-               out.print(css[i].getValue());
+               out.print(URLDecoder.decode(css[i].getValue(), "utf-8"));
              }
          }
          //获取sessionID   在浏览器中对应的是JSEESIONID

@@ -1,3 +1,4 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -23,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   
   <%
-  //可以创建多个cookie
-  Cookie cs=new Cookie("userName","admin123");
+  //可以创建多个cookie   如果有中文  务必设置编码格式
+  Cookie cs=new Cookie("userName",URLEncoder.encode("哈哈", "utf-8"));
   Cookie cs2=new Cookie("userName2","99999999999");
   
    //设置cookie的有效期  会在电脑中产生文件保存cookie   务必放在addCookie之前
