@@ -4,12 +4,12 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'main.jsp' starting page</title>
+    <title>My JSP 'doLogin.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,13 +23,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <h1>这是主页面</h1>
-    <%
-    session.invalidate();  //session 失效
-     %>
-      <a href="login.jsp">login</a>
-    
-    
-    
+  
+  <h1>doLogin页面</h1>
+  
+  <% 
+      Cookie [] css=  request.getCookies();
+      
+       if(css!=null){
+       
+         for(int i=0;i<css.length;i++){
+             if("userName".equals(css[i].getName())){
+               out.print(css[i].getValue());
+             }
+             if("userName2".equals(css[i].getName())){
+               out.print(css[i].getValue());
+             }
+         }
+         //获取sessionID   在浏览器中对应的是JSEESIONID
+          out.print(session.getId());
+       }
+  
+  
+   %>
+  
+  
+  
+  
   </body>
 </html>

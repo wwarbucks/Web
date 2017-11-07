@@ -54,9 +54,34 @@ session的失效方式
 03.设置session失效的时间
       session.setMaxInactiveInterval(5)  ; //以秒为单位！
 
+04.让session立即失效
+   session.invalidate();
+
 
 从session清除指定的属性
 session.removeAttribute("p");
+
+
+
+
+
+
+目的就是====》为了解决http协议无状态请求！
+
+引入了 session和cookie
+
+01.session保存在服务器，存储的是整个用户的信息
+02.在用户第一次访问服务器的时候，服务器通过response把一个编号（sessionId）
+   传递给浏览器了！在浏览器中sessionId被保存在cookies中！key==>JSEESIONID
+03.用户再去访问服务器的时候就是携带着  JSEESIONID！
+
+
+cookie的机制
+
+01.cookie中只能存放字符串
+02.如果cookie设置了有效期，那么会在电脑中创建文件保存cookie信息
+03.如果cookie没有设置有效期，那么cookie会随着浏览器的关闭而销毁
+04.cookie保存在客户端
 
 
 

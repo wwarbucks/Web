@@ -9,8 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'main.jsp' starting page</title>
-    
+    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,17 +18,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
   </head>
   
   <body>
-    <h1>这是主页面</h1>
-    <%
-    session.invalidate();  //session 失效
-     %>
-      <a href="login.jsp">login</a>
-    
-    
-    
+  
+  <%
+  //可以创建多个cookie
+  Cookie cs=new Cookie("userName","admin123");
+  Cookie cs2=new Cookie("userName2","99999999999");
+  
+   //设置cookie的有效期  会在电脑中产生文件保存cookie   务必放在addCookie之前
+   cs.setMaxAge(20);
+   
+  response.addCookie(cs);
+  response.addCookie(cs2);
+  
+ 
+  
+  response.sendRedirect("doLogin.jsp");
+   %>
+  
+  
+  
+  
+  
   </body>
 </html>

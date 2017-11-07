@@ -32,9 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   
   <%
+    /* 
+    从session中清除指定的属性
      session.removeAttribute("n");
-     session.removeAttribute("p");
-  
+     session.removeAttribute("p");*/
+   
    //从请求中获取用户输入的用户名和密码
 	  String name=(String)session.getAttribute("n");
 	  String pwd=(String)session.getAttribute("p"); 
